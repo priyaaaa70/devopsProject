@@ -62,7 +62,7 @@ def generate_insights(summary, df):
 
     # Ranking
     ranking = summary.sort_values("avg_duration")
-    insights.append("\nRanking (Fastest → Slowest):")
+    insights.append("\nRanking (Fastest to Slowest):")
     for i, row in enumerate(ranking.itertuples(), 1):
         insights.append(f"{i}. {row.team} ({row.avg_duration:.2f} sec)")
 
