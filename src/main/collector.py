@@ -19,7 +19,7 @@ def fetch_build_data(pipeline_name):
     print(f"{pipeline_name} STATUS:", response.status_code)
 
     if response.status_code != 200:
-        print(f"❌ Failed to fetch {pipeline_name}")
+        print(f" Failed to fetch {pipeline_name}")
         return []
 
     data = response.json()
@@ -62,8 +62,8 @@ if __name__ == "__main__":
     df = collect_all_data()
 
     if df.empty:
-        print("\n⚠️ No data collected!")
+        print("\n No data collected!")
     else:
         df.to_csv("pipeline_data.csv", index=False)
-        print("\n✅ Data collected successfully!\n")
+        print("\n Data collected successfully!\n")
         print(df)

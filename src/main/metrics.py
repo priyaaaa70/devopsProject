@@ -50,19 +50,19 @@ def generate_insights(summary, df):
     insights = []
 
     # Core insights
-    insights.append(f"🚀 Fastest pipeline: {fastest_team} ({fastest_time:.2f} sec avg)")
-    insights.append(f"🐢 Slowest pipeline: {slowest_team} ({slowest_time:.2f} sec avg)")
+    insights.append(f"Fastest pipeline: {fastest_team} ({fastest_time:.2f} sec avg)")
+    insights.append(f"Slowest pipeline: {slowest_team} ({slowest_time:.2f} sec avg)")
 
     # Performance gap
     gap = slowest_time - fastest_time
-    insights.append(f"📉 Performance gap: {gap:.2f} seconds between fastest and slowest")
+    insights.append(f"Performance gap: {gap:.2f} seconds between fastest and slowest")
 
     # Stability
-    insights.append(f"⚠️ Most unstable pipeline: {unstable_team} (std dev {std_dev[unstable_team]:.2f})")
+    insights.append(f"Most unstable pipeline: {unstable_team} (std dev {std_dev[unstable_team]:.2f})")
 
     # Ranking
     ranking = summary.sort_values("avg_duration")
-    insights.append("\n🏆 Ranking (Fastest → Slowest):")
+    insights.append("\nRanking (Fastest → Slowest):")
     for i, row in enumerate(ranking.itertuples(), 1):
         insights.append(f"{i}. {row.team} ({row.avg_duration:.2f} sec)")
 
@@ -76,15 +76,15 @@ if __name__ == "__main__":
     summary = compute_metrics(df)
     insights, std_dev, outliers = generate_insights(summary, df)
 
-    print("\n📊 PIPELINE METRICS:\n")
+    print("\nPIPELINE METRICS:\n")
     print(summary)
 
-    print("\n🧠 INSIGHTS:\n")
+    print("\nINSIGHTS:\n")
     for insight in insights:
         print("-", insight)
 
-    print("\n📊 STABILITY (STD DEV):\n")
+    print("\nSTABILITY (STD DEV):\n")
     print(std_dev)
 
-    print("\n⚠️ OUTLIER RUNS:\n")
+    print("\nOUTLIER RUNS:\n")
     print(outliers if not outliers.empty else "No significant outliers")
