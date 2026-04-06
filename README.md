@@ -1,14 +1,14 @@
-# Pipeline Performance Benchmarker
+# 🚀 Pipeline Performance Benchmarker
 
 **Student Name:** Priya Agrawal
 **Registration No:** 23FE10CII00029
-**Course:** IIS3250 DevOps 
-**Semester:** VI 
+**Course:** IIS3250 DevOps
+**Semester:** VI
 **Project Tool:** Jenkins & CI
 
 ---
 
-## Project Overview
+## 📌 Project Overview
 
 ### Problem Statement
 
@@ -16,7 +16,7 @@ In modern CI/CD workflows, multiple teams run pipelines, but there is limited vi
 
 ---
 
-### Objective
+### 🎯 Objective
 
 - Collect pipeline execution data from Jenkins
 - Benchmark performance across teams
@@ -25,7 +25,7 @@ In modern CI/CD workflows, multiple teams run pipelines, but there is limited vi
 
 ---
 
-### Key Features
+### ✨ Key Features
 
 - Jenkins pipeline data collection via API
 - Performance benchmarking across teams
@@ -34,7 +34,7 @@ In modern CI/CD workflows, multiple teams run pipelines, but there is limited vi
 
 ---
 
-## Technology Stack
+## 🛠️ Technology Stack
 
 ### Core Technologies
 
@@ -55,7 +55,7 @@ In modern CI/CD workflows, multiple teams run pipelines, but there is limited vi
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 devopsProject/
@@ -75,7 +75,7 @@ devopsProject/
 
 ---
 
-## How It Works
+## ⚙️ How It Works
 
 1. Jenkins pipelines are executed for multiple teams
 2. Pipeline data is fetched using the Jenkins REST API
@@ -85,7 +85,7 @@ devopsProject/
 
 ---
 
-## Performance Metrics
+## 📊 Performance Metrics
 
 | Metric | Description |
 |---|---|
@@ -97,7 +97,7 @@ devopsProject/
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -107,7 +107,7 @@ devopsProject/
 
 ---
 
-### Installation
+### 🔧 Installation
 
 1. Clone the repository:
 
@@ -150,7 +150,7 @@ http://localhost:8501
 
 ---
 
-## Jenkins Setup
+## 🔧 Jenkins Setup
 
 ### Step 1 - Install Jenkins
 
@@ -202,7 +202,7 @@ Click Build Now at least 3 times on each pipeline to generate build history.
 
 ---
 
-## CI/CD Flow
+## 🔄 CI/CD Flow
 
 1. Code is written and edited in VS Code
 2. Changes are committed and pushed to GitHub
@@ -214,7 +214,7 @@ Click Build Now at least 3 times on each pipeline to generate build history.
 
 ---
 
-## Dependencies
+## 📦 Dependencies
 
 Install all dependencies using:
 
@@ -230,9 +230,9 @@ pip install -r requirements.txt
 
 ---
 
-## Author
+## 👩‍💻 Author
 
 **Priya Agrawal**
 Registration No: 23FE10CII00029
-Course: IIS3250 DevOps 
-Semester VI 
+Course: IIS3250 DevOps
+Semester VI
