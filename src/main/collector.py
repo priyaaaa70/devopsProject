@@ -4,8 +4,8 @@ import pandas as pd
 JENKINS_URL = "http://localhost:8080"
 PIPELINES = ["team-a-pipeline", "team-b-pipeline", "team-c-pipeline"]
 
-USERNAME = "JunkYak"
-API_TOKEN = "110e9ec2e938d4119981864bf5d4032722"
+USERNAME = "admin"
+API_TOKEN = "11a6722285eceb1bb6a47a9d0c2ba91b89"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0"
