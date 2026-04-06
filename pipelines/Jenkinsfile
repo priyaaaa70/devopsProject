@@ -1,11 +1,15 @@
 pipeline {
     agent any
 
+    triggers {
+        githubPush()
+    }
+
     stages {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/JunkYak/devopsProject', branch: 'main'
+                git url: 'https://github.com/priyaaaa70/devopsProject', branch: 'main'
             }
         }
 
@@ -25,6 +29,15 @@ pipeline {
             steps {
                 bat 'python src/main/metrics.py'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
         }
     }
 }
