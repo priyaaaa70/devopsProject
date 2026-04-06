@@ -61,7 +61,7 @@ st.divider()
 st.subheader("Pipeline Ranking (Fastest to Slowest)")
 ranking = summary.sort_values("avg_duration").reset_index(drop=True)
 ranking.index += 1
-st.dataframe(ranking, use_container_width=True)
+st.dataframe(ranking, width='stretch')
 
 # ---------------- PERFORMANCE GAP ----------------
 gap = slowest["avg_duration"] - fastest["avg_duration"]
@@ -90,10 +90,10 @@ outliers = df[df["duration_sec"] > threshold]
 if outliers.empty:
     st.success("No significant outliers detected.")
 else:
-    st.dataframe(outliers, use_container_width=True)
+    st.dataframe(outliers, width='stretch')
 
 st.divider()
 
 # ---------------- RAW DATA ----------------
 st.subheader("Raw Pipeline Data")
-st.dataframe(df, use_container_width=True)
+st.dataframe(df, width='stretch')
