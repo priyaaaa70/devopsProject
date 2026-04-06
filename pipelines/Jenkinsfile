@@ -5,6 +5,10 @@ pipeline {
         githubPush()
     }
 
+    environment {
+        PYTHON = '"C:\\Users\\Priya Agrawal\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"'
+    }
+
     stages {
 
         stage('Checkout') {
@@ -15,19 +19,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat "%PYTHON% -m pip install -r requirements.txt"
             }
         }
 
         stage('Run Collector') {
             steps {
-                bat 'python src/main/collector.py'
+                bat "%PYTHON% src/main/collector.py"
             }
         }
 
         stage('Run Metrics') {
             steps {
-                bat 'python src/main/metrics.py'
+                bat "%PYTHON% src/main/metrics.py"
             }
         }
     }
