@@ -8,7 +8,7 @@ df = pd.read_csv("pipeline_data.csv")
 
 # ---------------- HEADER ----------------
 st.title("CI/CD Pipeline Performance Benchmarker")
-st.markdown("Real-time CI/CD Pipeline Performance Benchmarker | Priya")
+st.markdown("Real-time CI/CD Pipeline Performance Benchmarker")
 
 st.divider()
 
