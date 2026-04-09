@@ -55,19 +55,18 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+            stage('Deploy') {
             steps {
-                echo '==========================================='
-                echo 'STAGE 5: Deployment ready!'
-                echo '==========================================='
-                echo 'Project: CI/CD Pipeline Performance Benchmarker'
-                echo 'Developer: Priya Agrawal'
-                echo 'Course: IIS3250 DevOps'
-                echo 'Dashboard running at: http://localhost:8501'
-                echo 'Jenkins running at: http://localhost:8080'
-                echo 'All systems operational!'
-            }
+            echo '==========================================='
+            echo 'STAGE 5: Deploying application...'
+            echo '==========================================='
+            bat "%PYTHON% src/main/collector.py"
+            echo 'Fresh pipeline data collected!'
+            echo 'Dashboard is live at: http://localhost:8501'
+            echo 'Developer: Priya Agrawal'
+            echo 'Project: CI/CD Pipeline Performance Benchmarker'
         }
+    }
     }
 
     post {
