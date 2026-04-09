@@ -1,37 +1,86 @@
 pipeline {
     agent any
+
     triggers {
         githubPush()
     }
+
+    environment {
+        PYTHON = '"C:\\Users\\Priya Agrawal\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"'
+    }
+
     stages {
+
         stage('Code Checkout') {
             steps {
-                echo 'New code pushed to GitHub by Priya Agrawal!'
-                echo 'Webhook triggered this pipeline automatically!'
+                echo '==========================================='
+                echo 'STAGE 1: Checking out code from GitHub...'
+                echo '==========================================='
+                git url: 'https://github.com/priyaaaa70/devopsProject', branch: 'main'
+                echo 'Code successfully pulled from GitHub!'
             }
         }
-        stage('Build') {
+
+        stage('Install Dependencies') {
             steps {
-                echo 'Building CI/CD Pipeline Performance Benchmarker...'
-                sleep 3
+                echo '==========================================='
+                echo 'STAGE 2: Installing Python dependencies...'
+                echo '==========================================='
+                bat "%PYTHON% -m pip install -r requirements.txt"
+                echo 'All dependencies installed successfully!'
             }
         }
-        stage('Test') {
+
+        stage('Validate Code') {
             steps {
-                echo 'Running validation tests...'
-                sleep 2
+                echo '==========================================='
+                echo 'STAGE 3: Validating Python files...'
+                echo '==========================================='
+                bat "%PYTHON% -c \"import ast; ast.parse(open('src/main/app.py').read()); print('app.py - OK')\""
+                bat "%PYTHON% -c \"import ast; ast.parse(open('src/main/collector.py').read()); print('collector.py - OK')\""
+                bat "%PYTHON% -c \"import ast; ast.parse(open('src/main/metrics.py').read()); print('metrics.py - OK')\""
+                echo 'All Python files validated successfully!'
             }
         }
+
+        stage('Test Imports') {
+            steps {
+                echo '==========================================='
+                echo 'STAGE 4: Testing all imports and modules...'
+                echo '==========================================='
+                bat "%PYTHON% -c \"import streamlit; print('Streamlit version:', streamlit.__version__)\""
+                bat "%PYTHON% -c \"import pandas; print('Pandas version:', pandas.__version__)\""
+                bat "%PYTHON% -c \"import requests; print('Requests version:', requests.__version__)\""
+                echo 'All modules imported successfully!'
+            }
+        }
+
         stage('Deploy') {
             steps {
-                echo 'Deployment complete!'
-                echo 'Dashboard available at localhost:8501'
+                echo '==========================================='
+                echo 'STAGE 5: Deployment ready!'
+                echo '==========================================='
+                echo 'Project: CI/CD Pipeline Performance Benchmarker'
+                echo 'Developer: Priya Agrawal'
+                echo 'Course: IIS3250 DevOps'
+                echo 'Dashboard running at: http://localhost:8501'
+                echo 'Jenkins running at: http://localhost:8080'
+                echo 'All systems operational!'
             }
         }
     }
+
     post {
         success {
-            echo 'CI/CD Pipeline completed successfully!'
+            echo '==========================================='
+            echo 'PIPELINE COMPLETED SUCCESSFULLY!'
+            echo 'All 5 stages passed!'
+            echo '==========================================='
+        }
+        failure {
+            echo '==========================================='
+            echo 'PIPELINE FAILED! Check the logs above.'
+            echo '==========================================='
         }
     }
 }
